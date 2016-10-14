@@ -18,6 +18,17 @@ raise "Development seeds only (for now)!" unless Rails.env.development?
 
 # Let's do this ...
 
+## Reviews
+puts "Creating Reviews!"
+
+Review.create!({
+  product_id: 12,
+  user_id: 1,
+  description: "This bookshelf is both ugly and overpriced.",
+  rating: 1
+  })
+
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
