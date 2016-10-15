@@ -5,7 +5,9 @@
   </header>
 
   <article class="product-detail">
+
     <div class="row">
+
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -14,14 +16,18 @@
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
-          <% @avgReview = @product.reviews.sum(:rating) / @product.reviews.count %>
           <dd>
-            <% @avgReview.times do %>
-              <%= fa_icon('star', class: 'star') %>
-            <% end %>
-
-            <% (5 - @avgReview).times do %>
-              <%= fa_icon('star-o', class: 'star') %>
+            <% if @product.reviews.count > 0 %>
+              <% @avgReview = @product.reviews.sum(:rating) / @product.reviews.count %>
+              <% @avgReview.times do %>
+                <%= fa_icon('star', class: 'star') %>
+              <% end %>
+              <% (5 - @avgReview).times do %>
+                <%= fa_icon('star-o', class: 'star') %>
+              <% end %>
+              <%= @product.reviews.count %> reviews by users
+            <% else %>
+              <em>This product has no reviews yet</em>
             <% end %>
           </dd>
           <dt>Description</dt>
