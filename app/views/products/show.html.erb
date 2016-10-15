@@ -5,9 +5,7 @@
   </header>
 
   <article class="product-detail">
-
     <div class="row">
-
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
@@ -45,7 +43,6 @@
           <%= form.label :description %>
           <%= form.text_area :description, class: 'form-control' %>
         </div>
-
         <%= form.submit 'Submit Review', class: 'btn btn-primary' %>
       <% end %>
       </div>

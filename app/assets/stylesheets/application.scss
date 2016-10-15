@@ -18,3 +18,10 @@ body {
     display: block;
     padding: 15px 15px;
 }
+
+main article.product-reviews {
+
+  .star {
+    @extend .text-primary;
+  }
+}

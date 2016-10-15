@@ -1,9 +1,19 @@
-<article>
-  <header>
-    <%= review.rating %>
-    By <%= review.user.first_name %>
+<article class="review panel panel-default">
+  <header class="panel-heading">
+
+    <% review.rating.times do %>
+      <%= fa_icon('star', class: 'star') %>
+    <% end %>
+
+    <% (5 - review.rating).times do %>
+      <%= fa_icon('star-o', class: 'star') %>
+    <% end %>
+
+    <p>By <%= review.user.first_name %></p>
   </header>
-  <span>
-    <%= review.description %>
-  </span>
+  <div class="panel-body">
+    <p class="review description">
+      <%= review.description %>
+    </p>
+  </div>
 </article>
