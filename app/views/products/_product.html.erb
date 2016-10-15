@@ -4,6 +4,21 @@
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+        <p>
+      <% if product.reviews.count > 0 %>
+        <% @avgReview = product.reviews.sum(:rating) / product.reviews.count %>
+      <% else %>
+        <% @avgReview = 0 %>
+      <% end %>
+
+      <% @avgReview.times do %>
+        <%= fa_icon('star', class: 'star') %>
+      <% end %>
+
+      <% (5 - @avgReview).times do %>
+        <%= fa_icon('star-o', class: 'star') %>
+      <% end %>
+    </p>
   </header>
   <p class="description">
     <%= product.description %>
