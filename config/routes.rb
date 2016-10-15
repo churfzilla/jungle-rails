@@ -6,8 +6,9 @@ Rails.application.routes.draw do
     resources :reviews, only: [:create]
   end
 
+  resources :reviews, only: [:destroy]
   resources :categories, only: [:show]
-
+  resources :users, only: [:new, :create]
 
 
   resource :cart, only: [:show] do
