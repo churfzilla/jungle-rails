@@ -14,6 +14,16 @@
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
+          <% @avgReview = @product.reviews.sum(:rating) / @product.reviews.count %>
+          <dd>
+            <% @avgReview.times do %>
+              <%= fa_icon('star', class: 'star') %>
+            <% end %>
+
+            <% (5 - @avgReview).times do %>
+              <%= fa_icon('star-o', class: 'star') %>
+            <% end %>
+          </dd>
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
           <dt>Quantity</dt>
