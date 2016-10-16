@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   end
 
   resources :reviews, only: [:destroy]
+
   resources :categories, only: [:show]
+
   resources :users, only: [:new, :create]
 
 
