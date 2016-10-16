@@ -1,14 +1,52 @@
-<form class="form-vertical">
-  <h1>Signup!</h1>
-  <fieldset>
-<%= bootstrap_form_for(:user, url: '/users', layout: :inline, label_col: "col-sm-2", control_col: "col-sm-4") do |f| %>
-    <%= f.text_field :first_name %>
-    <%= f.text_field :last_name %>
-    <%= f.text_field :email %>
-    <%= f.password_field :password %>
-    <%= f.password_field :password_confirmation %>
-    <%= f.submit "Submit" %>
-  <% end %>
-  </fieldset>
-</form>
+<section class="user-new">
 
+  <header class="page-header">
+    <h1>Sign up!</h1>
+  </header>
+
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_for [@user] do |form| %>
+
+        <% if form.object.errors.any? %>
+          <div class="alert alert-danger">
+            <strong>Have you filled the fields correctly?</strong>
+            <ul>
+              <% form.object.errors.full_messages.each do |error| %>
+                <li><%= error %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :first_name %>
+          <%= form.text_field :first_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :last_name %>
+          <%= form.text_field :last_name, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :email %>
+          <%= form.email_field :email, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password %>
+          <%= form.password_field :password, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :password_confirmation %>
+          <%= form.password_field :password_confirmation, class: 'form-control' %>
+        </div>
+
+        <%= form.submit 'Sign up!', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+
+</section>

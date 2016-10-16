@@ -1,7 +1,27 @@
 <h1>Login</h1>
-<%= bootstrap_form_tag url: '/login' do |f| %>
-  <%= f.email_field :email %>
-  <%= f.password_field :password %>
-  <%= submit_tag "Submit" %>
-<% end %>
+
+<div class="row">
+
+    <div class="col-sm-6 col-sm-offset-1">
+      <%= form_tag('/login', method: 'post') do %>
+
+        <div class="form-group">
+          <%= label_tag :email %>
+          <%= text_field_tag :email, nil, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :password %>
+          <%= password_field_tag :password, nil, class: 'form-control' %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag :password_confirm %>
+          <%= password_field_tag :password_confirm, nil, class: 'form-control' %>
+        </div>
+
+        <%= submit_tag 'Login', class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
 

@@ -27,6 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'puma'
+gem "letter_opener", :group => :development
 
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'bootstrap_form'
