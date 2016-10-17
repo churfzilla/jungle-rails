@@ -7,6 +7,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = current_user
     @review.product_id = @product.id
+
     if @review.save
       redirect_to product_path(@product)
     else
