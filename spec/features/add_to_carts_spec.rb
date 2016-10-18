@@ -17,7 +17,7 @@ RSpec.feature "Visitor navigates to product page", type: :feature, js: true do
     end
   end
 
-  scenario "They see the product" do
+  scenario "They see the product, click add, see the new cart total" do
     # ACT
     visit root_path
     page.find('.product').find_link('Add').click
