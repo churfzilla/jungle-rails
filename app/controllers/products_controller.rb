@@ -9,4 +9,8 @@ class ProductsController < ApplicationController
     @review = Review.new
   end
 
+  def sold_out?
+    product.nil?
+  end
+
 end

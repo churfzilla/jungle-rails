@@ -6,6 +6,7 @@
 
   <% if cart.size == 0 %>
     <h1> Your cart is currently empty </h1>
+    <h4><a href="/">Head back and select some products</a></h4>
   <% else %>
   <div class="panel panel-default items">
     <table class="table table-bordered">
@@ -36,6 +37,7 @@
     </table>
   </div>
 
+  <% if current_user %>
   <div class="row">
     <div class="col-xs-12">
       <%= form_tag orders_path do %>
@@ -50,6 +52,9 @@
           data-currency="cad">
         </script>
       <% end %>
+    <% else %>
+    <h4><a href="/login">Please login to complete your purchase</a></h4>
+  <% end %>
     </div>
   </div>
   <% end %>
