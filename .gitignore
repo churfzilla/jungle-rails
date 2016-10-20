@@ -30,9 +30,13 @@ pickle-email-*.html
 # TODO Comment out these rules if you are OK with secrets being uploaded to the repo
 
 
+Testing files
+/spec
+
 # dotenv
 # TODO Comment out this rule if environment variables can be committed
 .env
+.DS_Store
 
 ## Environment normalization:
 /.bundle
