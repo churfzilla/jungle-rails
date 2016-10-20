@@ -23,14 +23,13 @@ class OrdersController < ApplicationController
   private
 
   def empty_cart!
-    # empty hash means no products in cart :)
     update_cart({})
   end
 
   def perform_stripe_charge
     Stripe::Charge.create(
       source:      params[:stripeToken],
-      amount:      cart_total, # in cents
+      amount:      cart_total,
       description: "Khurram Virani's Jungle Order",
       currency:    'cad'
     )
@@ -40,7 +39,7 @@ class OrdersController < ApplicationController
     order = Order.new(
       email: params[:stripeEmail],
       total_cents: cart_total,
-      stripe_charge_id: stripe_charge.id, # returned by stripe
+      stripe_charge_id: stripe_charge.id,
     )
     cart.each do |product_id, details|
       if product = Product.find_by(id: product_id)
@@ -57,7 +56,6 @@ class OrdersController < ApplicationController
     order
   end
 
-  # returns total in cents not dollars (stripe uses cents as well)
   def cart_total
     total = 0
     cart.each do |product_id, details|
